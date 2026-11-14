@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="SpellTray.CheckerWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Spell check">
+    <Grid Padding="16" Background="Transparent">
+        <TextBox
+            x:Name="Input"
+            Language="en-US"
+            AcceptsReturn="True"
+            TextWrapping="Wrap"
+            IsSpellCheckEnabled="True"
+            IsTextPredictionEnabled="False"
+            PlaceholderText="Type a word or sentence"
+            FontSize="18"
+            MinHeight="120"
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch" />
+    </Grid>
+</Window>

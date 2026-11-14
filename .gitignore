@@ -1,0 +1,7 @@
+bin/
+obj/
+publish/
+build/
+installer-staging/
+.vs/
+*.user
