@@ -33,9 +33,9 @@ If Ctrl+Space is already used by another program, the tray icon shows a notice. 
 
 Skip this section if you are only installing Spell Check. Use it only when you change the app and need a new `spellchecktray.exe`.
 
-The setup program is an EXE produced by Inno Setup from `installer/SpellCheck.iss`.
+The source is in `src`. The setup program is an EXE produced by Inno Setup from `src/installer/SpellCheck.iss`.
 
-From this folder, with the .NET 8 SDK and [Inno Setup 6](https://jrsoftware.org/isinfo.php):
+From `src`, with the .NET 8 SDK and [Inno Setup 6](https://jrsoftware.org/isinfo.php):
 
 1. Publish the app:
 
@@ -51,4 +51,4 @@ From this folder, with the .NET 8 SDK and [Inno Setup 6](https://jrsoftware.org/
    ISCC.exe installer\SpellCheck.iss
    ```
 
-The script writes a new `spellchecktray.exe`. Replace the copy in this repository with that file.
+The script writes a new `spellchecktray.exe` at the root of this repository, replacing the copy that is already there.
