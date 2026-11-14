@@ -34,7 +34,7 @@ public sealed partial class CheckerWindow : Window
             AppWindow.SetIcon(iconPath);
         }
 
-        AppWindow.Resize(new SizeInt32(Physical(hwnd, 560), Physical(hwnd, 240)));
+        AppWindow.Resize(new SizeInt32(Physical(hwnd, 560), Physical(hwnd, 120)));
         AppWindow.Closing += OnClosing;
         Input.KeyDown += OnInputKeyDown;
         AppWindow.Hide();

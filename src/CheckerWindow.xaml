@@ -8,14 +8,12 @@
         <TextBox
             x:Name="Input"
             Language="en-US"
-            AcceptsReturn="True"
-            TextWrapping="Wrap"
+            AcceptsReturn="False"
+            TextWrapping="NoWrap"
             IsSpellCheckEnabled="True"
             IsTextPredictionEnabled="False"
             PlaceholderText="Type a word or sentence"
             FontSize="18"
-            MinHeight="120"
-            VerticalAlignment="Stretch"
             HorizontalAlignment="Stretch" />
     </Grid>
 </Window>
