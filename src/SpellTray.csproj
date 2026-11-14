@@ -27,6 +27,14 @@
     </Content>
   </ItemGroup>
 
+  <Target Name="CopyCompiledXaml" AfterTargets="Build;Publish">
+    <ItemGroup>
+      <CompiledXaml Include="$(IntermediateOutputPath)*.xbf" />
+    </ItemGroup>
+    <Copy SourceFiles="@(CompiledXaml)" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(CompiledXaml)" DestinationFolder="$(PublishDir)" SkipUnchangedFiles="true" Condition="'$(PublishDir)' != ''" />
+  </Target>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4188" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.250602001" />
