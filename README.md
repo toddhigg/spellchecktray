@@ -9,7 +9,7 @@ To install it, you only need [`spellchecktray.exe`](spellchecktray.exe). You do 
 Spell Check Tray needs 64-bit Windows 10 version 1809 or later, including Windows 11.
 
 1. Download [`spellchecktray.exe`](spellchecktray.exe) and run it.
-2. Approve the administrator prompt. Setup installs Spell Check Tray, the .NET 8 Desktop Runtime, and the Windows App Runtime it needs.
+2. Approve the administrator prompt. Setup installs Spell Check Tray and the Windows App Runtime it needs.
 3. Leave **Start Spell Check Tray** checked if you want it running when setup finishes. A Start menu shortcut is created. A desktop shortcut is optional.
 
 The app installs to `C:\Program Files\Spell Check Tray`. The first time it runs, it turns on **Launch at startup**.
@@ -40,10 +40,10 @@ From `src`, with the .NET 8 SDK and [Inno Setup 6](https://jrsoftware.org/isinfo
 1. Publish the app:
 
    ```
-   dotnet publish SpellTray.csproj -c Release -r win-x64 --self-contained false -o installer-staging\app
+   dotnet publish SpellTray.csproj -c Release -r win-x64 -o installer-staging\app
    ```
 
-2. Download the Windows App Runtime 1.6.9 x64 installer and save it as `installer-staging\WindowsAppRuntimeInstall-x64.exe`. The matching download is the 1.6.9 (1.6.250602001) x64 installer from the [Windows App SDK downloads](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/downloads). Setup downloads the .NET 8 Desktop Runtime on its own.
+2. Download the Windows App Runtime 1.6.9 x64 installer and save it as `installer-staging\WindowsAppRuntimeInstall-x64.exe`. The matching download is the 1.6.9 (1.6.250602001) x64 installer from the [Windows App SDK downloads](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/downloads). The project trims unused .NET and Windows code into the app, so setup does not install a separate .NET runtime.
 
 3. Compile the script with `ISCC.exe`:
 

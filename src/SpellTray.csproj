@@ -15,6 +15,10 @@
     <DefaultItemExcludes>$(DefaultItemExcludes);build-tasks\**;build\**</DefaultItemExcludes>
     <WindowsPackageType>None</WindowsPackageType>
     <WindowsAppSDKSelfContained>false</WindowsAppSDKSelfContained>
+    <SelfContained>true</SelfContained>
+    <PublishTrimmed>true</PublishTrimmed>
+    <TrimMode>partial</TrimMode>
+    <DebuggerSupport>false</DebuggerSupport>
     <AppxGeneratePriEnabled>false</AppxGeneratePriEnabled>
     <AppxMSBuildToolsPath>$(MSBuildThisFileDirectory)build\AppxTasks\</AppxMSBuildToolsPath>
     <DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
@@ -26,6 +30,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+
+  <Target Name="RemovePublishDebugFiles" AfterTargets="Publish">
+    <ItemGroup>
+      <PublishDebugFile Include="$(PublishDir)mscordaccore*.dll;$(PublishDir)mscordbi.dll;$(PublishDir)Microsoft.DiaSymReader*.dll;$(PublishDir)createdump.exe" />
+    </ItemGroup>
+    <Delete Files="@(PublishDebugFile)" />
+  </Target>
 
   <Target Name="CopyCompiledXaml" AfterTargets="Build;Publish">
     <ItemGroup>
