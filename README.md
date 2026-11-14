@@ -2,13 +2,13 @@
 
 Spell Check sits in the Windows system tray. Press Ctrl+Space, type a word or sentence, and misspellings get a red underline. Right-click a marked word for suggestions, the same way Notepad does.
 
-The installer is a single EXE: `spellchecktray.exe`.
+The installer is the EXE in this repository: [`spellchecktray.exe`](spellchecktray.exe).
 
 ## Install
 
 Spell Check needs 64-bit Windows 10 version 1809 or later, including Windows 11.
 
-1. Run `spellchecktray.exe`.
+1. Download [`spellchecktray.exe`](spellchecktray.exe) from this repository and run it.
 2. Approve the administrator prompt. Setup installs Spell Check and the Windows App Runtime it needs.
 3. Leave **Start Spell Check** checked if you want it running when setup finishes. A Start menu shortcut is created. A desktop shortcut is optional.
 
