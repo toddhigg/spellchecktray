@@ -76,14 +76,32 @@ public sealed partial class CheckerWindow : Window
             }
 
             Activate();
-            Input.Focus(FocusState.Programmatic);
-            Input.SelectionStart = Input.Text.Length;
-            Input.SelectionLength = 0;
+            SetForegroundWindow(hwnd);
+            DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Low, FocusInput);
         }
         catch (Exception ex)
         {
             Log.Write(ex.ToString());
         }
+    }
+
+    private void FocusInput()
+    {
+        if (!Input.IsLoaded)
+        {
+            Input.Loaded += OnInputLoaded;
+            return;
+        }
+
+        Input.Focus(FocusState.Programmatic);
+        Input.SelectionStart = Input.Text.Length;
+        Input.SelectionLength = 0;
+    }
+
+    private void OnInputLoaded(object sender, RoutedEventArgs e)
+    {
+        Input.Loaded -= OnInputLoaded;
+        FocusInput();
     }
 
     private void OnInputKeyDown(object sender, KeyRoutedEventArgs e)
@@ -155,4 +173,7 @@ public sealed partial class CheckerWindow : Window
 
     [DllImport("user32.dll")]
     private static extern uint GetDpiForWindow(nint hwnd);
+
+    [DllImport("user32.dll")]
+    private static extern bool SetForegroundWindow(nint hWnd);
 }

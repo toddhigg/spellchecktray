@@ -69,7 +69,16 @@ public partial class App : Application
             _tray.ForceCreate();
 
             _hotkey = new HotkeyHook();
-            _hotkey.Pressed += () => _checker.DispatcherQueue.TryEnqueue(_checker.Toggle);
+            _hotkey.Pressed += () =>
+            {
+                if (_checker.DispatcherQueue.HasThreadAccess)
+                {
+                    _checker.Toggle();
+                    return;
+                }
+
+                _checker.DispatcherQueue.TryEnqueue(_checker.Toggle);
+            };
             if (!_hotkey.TryRegister())
             {
                 _tray.TrayIcon.ShowNotification(
