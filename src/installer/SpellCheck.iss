@@ -1,17 +1,17 @@
-; Spell Check installer. Friends run spellchecktray.exe, which installs the tray app
+; Spell Check Tray installer. Friends run spellchecktray.exe, which installs the tray app
 ; and the Windows App Runtime 1.6 it needs.
 
-#define AppName "Spell Check"
+#define AppName "Spell Check Tray"
 #define AppVersion "1.0.0"
 #define AppExe "SpellTray.exe"
-#define AppPublisher "Spell Check"
+#define AppPublisher "Spell Check Tray"
 
 [Setup]
 AppId={{B7E4A1C2-6F0D-4E58-9A31-7C2D8F0E5B14}
 AppName={#AppName}
 AppVersion={#AppVersion}
 AppPublisher={#AppPublisher}
-DefaultDirName={autopf}\Spell Check
+DefaultDirName={autopf}\Spell Check Tray
 DefaultGroupName={#AppName}
 DisableProgramGroupPage=yes
 OutputDir=..\..

@@ -1,24 +1,24 @@
-# Spell Check
+# Spell Check Tray
 
-Spell Check sits in the Windows system tray. Press Ctrl+Space, type a word or sentence, and misspellings get a red underline. Right-click a marked word for suggestions, the same way Notepad does.
+Spell Check Tray sits in the Windows system tray. Press Ctrl+Space, type a word or sentence, and misspellings get a red underline. Right-click a marked word for suggestions, the same way Notepad does.
 
 To install it, you only need [`spellchecktray.exe`](spellchecktray.exe). You do not need the source code, the .NET SDK, or Inno Setup.
 
 ## Install
 
-Spell Check needs 64-bit Windows 10 version 1809 or later, including Windows 11.
+Spell Check Tray needs 64-bit Windows 10 version 1809 or later, including Windows 11.
 
 1. Download [`spellchecktray.exe`](spellchecktray.exe) and run it.
-2. Approve the administrator prompt. Setup installs Spell Check and the Windows App Runtime it needs.
-3. Leave **Start Spell Check** checked if you want it running when setup finishes. A Start menu shortcut is created. A desktop shortcut is optional.
+2. Approve the administrator prompt. Setup installs Spell Check Tray and the Windows App Runtime it needs.
+3. Leave **Start Spell Check Tray** checked if you want it running when setup finishes. A Start menu shortcut is created. A desktop shortcut is optional.
 
-The app installs to `C:\Program Files\Spell Check`. The first time it runs, it turns on **Launch at startup**.
+The app installs to `C:\Program Files\Spell Check Tray`. The first time it runs, it turns on **Launch at startup**.
 
-To remove it, open **Settings > Apps** and uninstall **Spell Check**. That also removes the startup entry.
+To remove it, open **Settings > Apps** and uninstall **Spell Check Tray**. That also removes the startup entry.
 
 ## Use
 
-The dictionary icon in the tray is Spell Check.
+The dictionary icon in the tray is Spell Check Tray.
 
 - Press **Ctrl+Space** to open the checker on the monitor under the pointer. Press it again to hide the window.
 - Type a word or sentence. A misspelled word is underlined in red.
@@ -31,7 +31,7 @@ If Ctrl+Space is already used by another program, the tray icon shows a notice. 
 
 ## Rebuild the installer
 
-Skip this section if you are only installing Spell Check. Use it only when you change the app and need a new `spellchecktray.exe`.
+Skip this section if you are only installing Spell Check Tray. Use it only when you change the app and need a new `spellchecktray.exe`.
 
 The source is in `src`. The setup program is an EXE produced by Inno Setup from `src/installer/SpellCheck.iss`.
 

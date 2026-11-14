@@ -33,7 +33,7 @@ public partial class App : Application
             var iconPath = Path.Combine(AppContext.BaseDirectory, "Assets", "Dictionary.ico");
             _tray = new TaskbarIcon
             {
-                ToolTipText = "Spell check",
+                ToolTipText = "Spell Check Tray",
                 NoLeftClickDelay = true,
                 ContextMenuMode = ContextMenuMode.SecondWindow,
                 Icon = new System.Drawing.Icon(iconPath),
@@ -65,7 +65,7 @@ public partial class App : Application
             if (!_hotkey.TryRegister())
             {
                 _tray.TrayIcon.ShowNotification(
-                    "Spell check",
+                    "Spell Check Tray",
                     "Ctrl+Space is already in use. Left-click the dictionary icon.",
                     NotificationIcon.Warning);
             }

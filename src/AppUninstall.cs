@@ -17,8 +17,8 @@ static class AppUninstall
         }
 
         using var key = Registry.CurrentUser.CreateSubKey(UninstallKeyPath);
-        key.SetValue("DisplayName", "Spell Check");
-        key.SetValue("Publisher", "Spell Check");
+        key.SetValue("DisplayName", "Spell Check Tray");
+        key.SetValue("Publisher", "Spell Check Tray");
         key.SetValue("DisplayIcon", exe);
         key.SetValue("UninstallString", $"\"{exe}\" --uninstall");
         key.SetValue("NoModify", 1, RegistryValueKind.DWord);
