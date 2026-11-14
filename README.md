@@ -2,13 +2,13 @@
 
 Spell Check sits in the Windows system tray. Press Ctrl+Space, type a word or sentence, and misspellings get a red underline. Right-click a marked word for suggestions, the same way Notepad does.
 
-The installer is the EXE in this repository: [`spellchecktray.exe`](spellchecktray.exe).
+To install it, you only need [`spellchecktray.exe`](spellchecktray.exe). You do not need the source code, the .NET SDK, or Inno Setup.
 
 ## Install
 
 Spell Check needs 64-bit Windows 10 version 1809 or later, including Windows 11.
 
-1. Download [`spellchecktray.exe`](spellchecktray.exe) from this repository and run it.
+1. Download [`spellchecktray.exe`](spellchecktray.exe) and run it.
 2. Approve the administrator prompt. Setup installs Spell Check and the Windows App Runtime it needs.
 3. Leave **Start Spell Check** checked if you want it running when setup finishes. A Start menu shortcut is created. A desktop shortcut is optional.
 
@@ -29,7 +29,9 @@ The dictionary icon in the tray is Spell Check.
 
 If Ctrl+Space is already used by another program, the tray icon shows a notice. Left-click the dictionary icon to open the checker.
 
-## Build the installer
+## Rebuild the installer
+
+Skip this section if you are only installing Spell Check. Use it only when you change the app and need a new `spellchecktray.exe`.
 
 The setup program is an EXE produced by Inno Setup from `installer/SpellCheck.iss`.
 
@@ -49,4 +51,4 @@ From this folder, with the .NET 8 SDK and [Inno Setup 6](https://jrsoftware.org/
    ISCC.exe installer\SpellCheck.iss
    ```
 
-The script writes `spellchecktray.exe`. Give that file to someone else. They do not need the source, the .NET SDK, or Inno Setup.
+The script writes a new `spellchecktray.exe`. Replace the copy in this repository with that file.
