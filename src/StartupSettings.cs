@@ -43,7 +43,8 @@ static class StartupSettings
                 path = Environment.GetCommandLineArgs()[0];
             }
 
-            run.SetValue(RunValueName, $"\"{path}\"");
+            // A quoted Run value with nothing after the closing quote is parsed as just the file name.
+run.SetValue(RunValueName, $"\"{path}\" --startup");
             return;
         }
 

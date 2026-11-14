@@ -10,11 +10,19 @@ public static class Program
     [STAThread]
     public static void Main(string[] args)
     {
+        if (args.Any(arg => string.Equals(arg, "--uninstall", StringComparison.OrdinalIgnoreCase)))
+        {
+            AppUninstall.Run();
+            return;
+        }
+
         _singleInstance = new Mutex(true, @"Local\SpellTray.SingleInstance", out var created);
         if (!created)
         {
             return;
         }
+
+        AppUninstall.Register();
 
         try
         {
