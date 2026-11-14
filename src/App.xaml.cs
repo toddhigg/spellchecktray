@@ -35,7 +35,7 @@ public partial class App : Application
             {
                 ToolTipText = "Spell Check Tray",
                 NoLeftClickDelay = true,
-                ContextMenuMode = ContextMenuMode.SecondWindow,
+                ContextMenuMode = ContextMenuMode.PopupMenu,
                 Icon = new System.Drawing.Icon(iconPath),
             };
 
@@ -48,10 +48,18 @@ public partial class App : Application
                 Text = "Launch at startup",
                 IsChecked = StartupSettings.IsEnabled(),
             };
-            _startupItem.Click += (_, _) => StartupSettings.SetEnabled(_startupItem.IsChecked);
+            var startupCommand = new XamlUICommand();
+            startupCommand.ExecuteRequested += (_, _) =>
+            {
+                _startupItem.IsChecked = !_startupItem.IsChecked;
+                StartupSettings.SetEnabled(_startupItem.IsChecked);
+            };
+            _startupItem.Command = startupCommand;
 
             var exit = new MenuFlyoutItem { Text = "Exit" };
-            exit.Click += (_, _) => Quit();
+            var exitCommand = new XamlUICommand();
+            exitCommand.ExecuteRequested += (_, _) => Quit();
+            exit.Command = exitCommand;
 
             var menu = new MenuFlyout();
             menu.Items.Add(_startupItem);

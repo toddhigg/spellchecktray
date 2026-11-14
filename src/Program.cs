@@ -22,8 +22,6 @@ public static class Program
             return;
         }
 
-        AppUninstall.Register();
-
         try
         {
             Microsoft.Windows.ApplicationModel.DynamicDependency.Bootstrap.Initialize(0x00010006);
